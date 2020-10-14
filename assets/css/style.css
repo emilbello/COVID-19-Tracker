@@ -32,4 +32,15 @@
 #left-padding {
     padding-left: 50px;
 }
+
+#overtime {
+    background: grey;
+}
+
+#placeholder {
+    height: 300px;
+    background: grey;
+    border-style: solid;
+    border-color: white;
+}
   
