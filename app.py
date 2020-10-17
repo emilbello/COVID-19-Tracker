@@ -24,8 +24,7 @@ base = automap_base()
 base.prepare(engine, reflect=True)
 
 # Choose the table we wish to use
-table_all = base.classes.covid_data
-table_hist = base.classes.covid_hist
+table = base.classes.covid_hist
 
 # Instantiate the Flask application. (Chocolate cake recipe.)
 # This statement is required for Flask to do its job. 
@@ -39,7 +38,7 @@ def IndexRoute():
         Note that the html file must be located in a folder called templates. '''
      # Open a session, run the query, and then close the session again
     session = Session(engine)
-    results = session.query(table_hist.date, table_hist.death_increase).all()
+    results = session.query(table.date, table.death_increase).all()
     session.close()
 
     calendar = []
