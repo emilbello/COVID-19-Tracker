@@ -28,3 +28,16 @@ CREATE TABLE covid_hist (
     hospitalized_currently FLOAT,
     on_ventilator_currently FLOAT
 );
+
+CREATE TABLE covid_rolling (
+    state TEXT,
+    date date,
+    positive FLOAT,
+    positive_increase INT,
+    death FLOAT,
+    death_increase INT,
+    positive_rolling_avg FLOAT,
+    death_rolling_avg FLOAT,
+    new_datelapse INT,
+    death_datelapse INT
+)
