@@ -24,7 +24,7 @@ base = automap_base()
 base.prepare(engine, reflect=True)
 
 # Choose the table we wish to use
-table = base.classes.covid_hist
+table = base.classes.covid_rolling
 
 # Instantiate the Flask application. (Chocolate cake recipe.)
 # This statement is required for Flask to do its job. 
@@ -32,23 +32,24 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Effectively disables page caching
 
 # Here's where we define the various application routes ...
-@app.route("/")
+@app.route("/test")
 def IndexRoute():
     ''' This function runs when the browser loads the index route. 
         Note that the html file must be located in a folder called templates. '''
      # Open a session, run the query, and then close the session again
     session = Session(engine)
-    results = session.query(table.date, table.death_increase).all()
+    results = session.query(table.state, table.date, table.positive_rolling_avg).all()
     session.close()
 
-    calendar = []
+    rolling = []
     for date, death_increase in results:
         dict = {}
-        dict["day"] = date
-        dict["value"] = death_increase
-        calendar.append(dict)
+        dict["state"] = state
+        dict["date"] = date
+        dict["positive_rolling_avg"] = positive_rolling_avg
+        rolling.append(dict)
 
-    return jsonify(calendar)
+    return jsonify(rolling)
 
 
 # This statement is required for Flask to do its job. 
