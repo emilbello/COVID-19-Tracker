@@ -7,6 +7,9 @@
   <title>COVID19</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- IMPORT PLOTLY -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   <!-- D3 Import -->
   <script src="https://d3js.org/d3.v5.min.js"></script>   
 
@@ -37,9 +40,9 @@
             Explore
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">In Maps</a>
+            <a class="dropdown-item" href="maps.html">In Maps</a>
             <a class="dropdown-item" href="numbers.html">In Numbers</a>
-            <a class="dropdown-item" href="#">In Charts</a>
+            <a class="dropdown-item" href="charts.html">In Charts</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#"></a>
           </div>
@@ -64,12 +67,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-2" id="placeholder">Side bar of numbers or other info</div>
-    <div class="col-8">
-      <!-- COVID NUMBERS OVER TIME GRAPH -->
-      <div id="placeholder">Graph of covid over time</div>
+    <div class="col-12">
+      <div id="plot"></div>
     </div>
-    <div class="col-2" id="placeholder">Another side bar of something?</div>
   </div>
 
   <div class = "row">

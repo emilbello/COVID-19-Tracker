@@ -32,8 +32,10 @@ table = base.classes.covid_rolling
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Effectively disables page caching
 
-# Here's where we define the various application routes ...
-@app.route("/")
+
+# DEFINE APP ROUTES TO SPECIFIC PAGES
+
+@app.route("/index.html")
 def IndexRoute():
     ''' This function runs when the browser loads the index route. 
         Note that the html file must be located in a folder called templates. '''
@@ -42,6 +44,59 @@ def IndexRoute():
     webpage = render_template("index.html")
 
     return webpage 
+
+@app.route("/maps.html")
+def MapsRoute():
+    ''' This function runs when the browser loads the index route. 
+        Note that the html file must be located in a folder called templates. '''
+     # Open a session, run the query, and then close the session again
+
+    webpage = render_template("maps.html")
+
+    return webpage
+
+@app.route("/numbers.html")
+def NumbersRoute():
+    ''' This function runs when the browser loads the index route. 
+        Note that the html file must be located in a folder called templates. '''
+     # Open a session, run the query, and then close the session again
+
+    webpage = render_template("numbers.html")
+
+    return webpage
+
+@app.route("/charts.html")
+def ChartsRoute():
+    ''' This function runs when the browser loads the index route. 
+        Note that the html file must be located in a folder called templates. '''
+     # Open a session, run the query, and then close the session again
+
+    webpage = render_template("charts.html")
+
+    return webpage
+
+@app.route("/team.html")
+def TeamRoute():
+    ''' This function runs when the browser loads the index route. 
+        Note that the html file must be located in a folder called templates. '''
+     # Open a session, run the query, and then close the session again
+
+    webpage = render_template("team.html")
+
+    return webpage 
+
+@app.route("/overview.html")
+def OverviewRoute():
+    ''' This function runs when the browser loads the index route. 
+        Note that the html file must be located in a folder called templates. '''
+     # Open a session, run the query, and then close the session again
+
+    webpage = render_template("overview.html")
+
+    return webpage 
+
+
+# DEFINE APP ROUTES TO QUERY SPECIFIC DATA
 
 @app.route("/covidhistory")
 def QueryCovidHist():
@@ -54,7 +109,7 @@ def QueryCovidHist():
     hist = []
     for date, death_increase in results:
         dict = {}
-        dict["day"] = date
+        dict["date"] = date
         dict["value"] = death_increase
         hist.append(dict)
 
