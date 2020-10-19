@@ -24,6 +24,7 @@ base = automap_base()
 base.prepare(engine, reflect=True)
 
 # Choose the table we wish to use
+table_hist = base.classes.covid_hist
 table = base.classes.covid_rolling
 
 # Instantiate the Flask application. (Chocolate cake recipe.)
@@ -37,8 +38,35 @@ def IndexRoute():
     ''' This function runs when the browser loads the index route. 
         Note that the html file must be located in a folder called templates. '''
      # Open a session, run the query, and then close the session again
+
+    webpage = render_template("index.html")
+
+    return webpage 
+
+@app.route("/covidhistory")
+def QueryCovidHist():
+    ''' Querty the database for Covid History of US and return the results as JSON '''
+
     session = Session(engine)
-    results = session.query(table.state, table.date, table.positive_rolling_avg).all()
+    results = session.query(table_hist.date, table_hist.death_increase)
+    session.close()
+
+    hist = []
+    for date, death_increase in results:
+        dict = {}
+        dict["day"] = date
+        dict["value"] = death_increase
+        hist.append(dict)
+
+    return jsonify(hist)
+
+
+@app.route("/rollingavg")
+def QueryRollingAvg():
+    ''' Querty the database for Covid Rolling Avg of US and return the results as JSON '''
+
+    session = Session(engine)
+    results = session.query(table.state, table.date, table.positive_rolling_avg)
     session.close()
 
     rolling = []
@@ -50,7 +78,6 @@ def IndexRoute():
         rolling.append(dict)
 
     return jsonify(rolling)
-
 
 # This statement is required for Flask to do its job. 
 # Think of it as chocolate cake recipe. 
