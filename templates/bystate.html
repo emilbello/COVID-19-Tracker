@@ -7,6 +7,13 @@
   <title>COVID19</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- IMPORT PLOTLY -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<!-- D3 Import -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
@@ -27,9 +34,8 @@
             Explore
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">In Maps</a>
-            <a class="dropdown-item" href="numbers.html">In Numbers</a>
-            <a class="dropdown-item" href="charts.html">In Charts</a>
+            <a class="dropdown-item" href="USA.html">USA</a>
+            <a class="dropdown-item" href="#">By State</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#"></a>
           </div>
@@ -42,16 +48,37 @@
       </li>
     </div>
   </nav>
-
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
+    <div class="col-md-2">
+      <div class="well">
+        <h5>State:</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
         <div class="col-12">
-           <h3 id="bio">Making a dashboard of just maps related to COVID19</h3>
+           <!-- <div id="plot"></div> -->
         </div>
     </div>
 </div>
 
   </div>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+
+<!-- API key -->
+<script type="text/javascript" src="/static/js/config.js"></script>
+
+<!-- JS -->
+<script type="text/javascript" src="/static/js/app.js"></script>
+<script type="text/javascript" src="/static/js/app-state.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

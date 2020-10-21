@@ -147,7 +147,7 @@ d3.json("/covidhistory").then(function (sample) {
             .selectAll("rect")
             .data(d => d.values, d => d.date)
             .transition()
-            .duration(500)
+            .duration(0)
             .attr("fill", d => (legend.selected ? colorFn(d.value) : "white"));
         }
 

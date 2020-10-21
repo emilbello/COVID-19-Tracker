@@ -46,33 +46,23 @@ def IndexRoute():
 
     return webpage 
 
-@app.route("/maps.html")
-def MapsRoute():
-    ''' This function runs when the browser loads the index route. 
-        Note that the html file must be located in a folder called templates. '''
-     # Open a session, run the query, and then close the session again
-
-    webpage = render_template("maps.html")
-
-    return webpage
-
-@app.route("/numbers.html")
+@app.route("/USA.html")
 def NumbersRoute():
     ''' This function runs when the browser loads the index route. 
         Note that the html file must be located in a folder called templates. '''
      # Open a session, run the query, and then close the session again
 
-    webpage = render_template("numbers.html")
+    webpage = render_template("USA.html")
 
     return webpage
 
-@app.route("/charts.html")
+@app.route("/bystate.html")
 def ChartsRoute():
     ''' This function runs when the browser loads the index route. 
         Note that the html file must be located in a folder called templates. '''
      # Open a session, run the query, and then close the session again
 
-    webpage = render_template("charts.html")
+    webpage = render_template("bystate.html")
 
     return webpage
 
