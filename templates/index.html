@@ -67,15 +67,15 @@
 
 <div class="row">
   <div class="col-4 text-center">
-    <h5 class="underline">Deaths</h5><div id="death_today"></div>
+    <h5 class="underline" style="color:#910f06">Deaths</h5><div id="death_today"></div>
   </div>
 
   <div class="col-4 text-center">
-    <h5 class="underline">Positive</h5><div class="thin-text" id="positive_today"></div>
+    <h5 class="underline" style="color:#d1870f">Positive</h5><div class="thin-text" id="positive_today"></div>
   </div>
 
   <div class="col-4 text-center">
-    <h5 class="underline">Hospitalized</h5><div id="hosp_today"></div>
+    <h5 class="underline" style="color: #131d87">Hospitalized</h5><div id="hosp_today"></div>
   </div>
 
 </div>
@@ -86,9 +86,24 @@
       <svg class="svgcal" id="svg"></svg>
     </div>
   </div>
-
-  
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <svg class="svgcal" id="svg-pos"></svg>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <svg class="svgcal" id="svg-hosp"></svg>
+    </div>
+  </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -105,8 +120,11 @@ crossorigin=""></script>
 <script type="text/javascript" src="/static/js/config.js"></script>
 
 <!-- JS -->
+<script type="text/javascript" src="/static/js/app.js"></script>
 <script type="text/javascript" src="/static/js/app-numbers.js"></script>
 <script type="text/javascript" src="/static/js/app-cal.js"></script>
+<script type="text/javascript" src="/static/js/app-cal-positive.js"></script>
+<script type="text/javascript" src="/static/js/app-cal-hosp.js"></script>
 
 </body>
 

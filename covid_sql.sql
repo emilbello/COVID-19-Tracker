@@ -25,6 +25,8 @@ CREATE TABLE covid_hist (
     negative INT,
     death FLOAT,
     death_increase INT,
+    hospitalized_increase INT,
+    positive_increase INT,
     hospitalized_currently FLOAT,
     on_ventilator_currently FLOAT
 );

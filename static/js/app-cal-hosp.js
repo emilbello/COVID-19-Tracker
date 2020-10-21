@@ -6,10 +6,10 @@ d3.json("/covidhistory").then(function (sample) {
 
     const dateValues = sample.map(dv => ({
         date: d3.timeDay(new Date(dv.date)),
-        value: Number(dv.death_incr)
+        value: Number(dv.hospitalized_current)
     }));
 
-    const svg = d3.select("#svg");
+    const svg = d3.select("#svg-hosp");
     const { width, height } = document
         .getElementById("svg")
         .getBoundingClientRect();
@@ -64,7 +64,7 @@ d3.json("/covidhistory").then(function (sample) {
         const timeWeek = d3.utcSunday;
         const formatDate = d3.utcFormat("%x");
         const colorFn = d3
-        .scaleSequential(d3.interpolateReds )
+        .scaleSequential(d3.interpolateBlues)
         .domain([Math.floor(minValue), Math.ceil(maxValue)]);
         const format = d3.format("+.2%");
 

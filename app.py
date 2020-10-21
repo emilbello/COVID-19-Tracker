@@ -104,11 +104,11 @@ def QueryCovidHist():
     ''' Querty the database for Covid History of US and return the results as JSON '''
 
     session = Session(engine)
-    results = session.query(table_hist.date, table_hist.death_increase, table_hist.death, table_hist.positive, table_hist.negative, table_hist.hospitalized_currently, table_hist.on_ventilator_currently)
+    results = session.query(table_hist.date, table_hist.death_increase, table_hist.death, table_hist.positive, table_hist.negative, table_hist.hospitalized_currently, table_hist.on_ventilator_currently, table_hist.hospitalized_increase, table_hist.positive_increase)
     session.close()
 
     hist = []
-    for date, death_increase, death, positive, negative, hospitalized_currently, on_ventilator_currently in results:
+    for date, death_increase, death, positive, negative, hospitalized_currently, on_ventilator_currently, hospitalized_increase, positive_increase in results:
         dict = {}
         dict["date"] = date
         dict["death_incr"] = death_increase
@@ -117,6 +117,8 @@ def QueryCovidHist():
         dict["total_neg"] = negative 
         dict["hospitalized_current"] = hospitalized_currently
         dict["on_ventilator_currently"] = on_ventilator_currently
+        dict["hospitalized_increase"] = hospitalized_increase
+        dict["positive_increase"] = positive_increase
         hist.append(dict)
 
     return jsonify(hist)
@@ -127,15 +129,23 @@ def QueryRollingAvg():
     ''' Querty the database for Covid Rolling Avg of US and return the results as JSON '''
 
     session = Session(engine)
-    results = session.query(table.state, table.date, table.positive_rolling_avg)
+    results = session.query(table.state, table.date, table.positive, table.positive_increase, table.death, table.death_increase, table.positive_rolling_avg, table.death_rolling_avg, table.new_datelapse, table.death_datelapse)
     session.close()
 
     rolling = []
-    for state, date, positive_rolling_avg in results:
+    for state, date, positive, positive_increase, death, death_increase, positive_rolling_avg, death_rolling_avg, new_datelapse, death_datelapse in results:
         dict = {}
         dict["state"] = state
         dict["date"] = date
+        dict["positive"] = positive
+        dict["positive_increase"] = positive_increase
+        dict["death"] = death
+        dict["death_increase"] = death_increase
         dict["positive_rolling_avg"] = positive_rolling_avg
+        dict["death_rolling_avg"] = death_rolling_avg
+        dict["new_datelapse"] = new_datelapse
+        dict["death_datelapse"] = death_datelapse
+        
         rolling.append(dict)
 
     return jsonify(rolling)
