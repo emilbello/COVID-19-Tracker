@@ -24,6 +24,7 @@ base = automap_base()
 base.prepare(engine, reflect=True)
 
 # Choose the table we wish to use
+table_bystate = base.classes.covid_data
 table_hist = base.classes.covid_hist
 table = base.classes.covid_rolling
 
@@ -103,14 +104,19 @@ def QueryCovidHist():
     ''' Querty the database for Covid History of US and return the results as JSON '''
 
     session = Session(engine)
-    results = session.query(table_hist.date, table_hist.death_increase)
+    results = session.query(table_hist.date, table_hist.death_increase, table_hist.death, table_hist.positive, table_hist.negative, table_hist.hospitalized_currently, table_hist.on_ventilator_currently)
     session.close()
 
     hist = []
-    for date, death_increase in results:
+    for date, death_increase, death, positive, negative, hospitalized_currently, on_ventilator_currently in results:
         dict = {}
         dict["date"] = date
-        dict["value"] = death_increase
+        dict["death_incr"] = death_increase
+        dict["all_death"] = death
+        dict["total_pos"] = positive 
+        dict["total_neg"] = negative 
+        dict["hospitalized_current"] = hospitalized_currently
+        dict["on_ventilator_currently"] = on_ventilator_currently
         hist.append(dict)
 
     return jsonify(hist)
@@ -133,6 +139,38 @@ def QueryRollingAvg():
         rolling.append(dict)
 
     return jsonify(rolling)
+
+@app.route("/covid_data")
+def QueryCovidData():
+
+    session = Session(engine)
+    results = session.query(table_bystate.date, table_bystate.state, table_bystate.state_abbr, table_bystate.population, table_bystate.positive, table_bystate.positive_increase, table_bystate.death, table_bystate.death_increase, table_bystate.hospitalized_currently, table_bystate.hospitalized_increase, table_bystate.hospitalized_cumulative, table_bystate.in_icu_currently, table_bystate.in_icu_cumulative, table_bystate.on_ventilator_currently, table_bystate.on_ventilator_cumulative, table_bystate.data_quality_grade, table_bystate.positive_per_100k, table_bystate.death_per_100k)
+    session.close()
+
+    coviddata = []
+    for date, state, state_abbr, population, positive, positive_increase, death, death_increase, hospitalized_currently, hospitalized_increase, hospitalized_cumulative, in_icu_currently, in_icu_cumulative, on_ventilator_currently, on_ventilator_cumulative, data_quality_grade, positive_per_100k, death_per_100k in results:
+        dict = {}
+        dict["date"] = date
+        dict["state"] = state
+        dict["state_abbr"] = state_abbr
+        dict["population"] = population
+        dict["positive"] = positive
+        dict["positive_increase"] = positive_increase
+        dict["death"] = death
+        dict["death_increase"] = death_increase
+        dict["hospitalized_currently"] = hospitalized_currently
+        dict["hospitalized_increase"] = hospitalized_increase
+        dict["hospitalized_cumulative"] = hospitalized_cumulative
+        dict["in_icu_currently"] = in_icu_currently
+        dict["in_icu_cumulative"] = in_icu_cumulative
+        dict["on_ventilator_currently"] = on_ventilator_currently
+        dict["on_ventilator_cumulative"] = on_ventilator_cumulative
+        dict["data_quality_grade"] = data_quality_grade
+        dict["positive_per_100k"] = positive_per_100k
+        dict["death_per_100k"] = death_per_100k
+        coviddata.append(dict)
+
+    return jsonify(coviddata)
 
 # This statement is required for Flask to do its job. 
 # Think of it as chocolate cake recipe. 
