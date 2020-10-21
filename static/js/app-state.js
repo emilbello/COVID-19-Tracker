@@ -17,7 +17,7 @@ function init() {
         for (var i = 0; i < state.length; i++) {
            
            // STATE CODE FOR DROPDOWN 
-           statecode = state[i].state;
+           statecode = state[i].state_abbr;
            stateID.push(statecode);
 
         }
