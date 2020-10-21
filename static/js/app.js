@@ -1,6 +1,7 @@
-console.log("Loaded app.js HELLO HELLO")
+console.log("Loaded app.js")
 
 d3.json("/covidhistory").then(function (data) {
+    console.log("USA TOTAL - COVID HISTORY")
     console.log(data);
 
         // Next, pull out the keys and the values for graphing
@@ -20,7 +21,7 @@ d3.json("/covidhistory").then(function (data) {
     
         // Define a layout object
         var layout = {
-            title: "'Bar' Chart",
+            title: "COVID-19 Deaths per day",
             xaxis: { title: "Date"},
             yaxis: { title: "Death"}
         };
@@ -30,5 +31,6 @@ d3.json("/covidhistory").then(function (data) {
 })
 
 d3.json("/rollingavg").then(function (data) {
+    console.log("BY STATE - COVID ROLLING AVG")
     console.log(data);
 })

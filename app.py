@@ -103,14 +103,19 @@ def QueryCovidHist():
     ''' Querty the database for Covid History of US and return the results as JSON '''
 
     session = Session(engine)
-    results = session.query(table_hist.date, table_hist.death_increase)
+    results = session.query(table_hist.date, table_hist.death_increase, table_hist.death, table_hist.positive, table_hist.negative, table_hist.hospitalized_currently, table_hist.on_ventilator_currently)
     session.close()
 
     hist = []
-    for date, death_increase in results:
+    for date, death_increase, death, positive, negative, hospitalized_currently, on_ventilator_currently in results:
         dict = {}
         dict["date"] = date
         dict["value"] = death_increase
+        dict["all_death"] = death
+        dict["total_pos"] = positive 
+        dict["total_neg"] = negative 
+        dict["hospitalized_current"] = hospitalized_currently
+        dict["on_ventilator_currently"] = on_ventilator_currently
         hist.append(dict)
 
     return jsonify(hist)

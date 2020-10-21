@@ -6,7 +6,8 @@
   <link rel="shortcut icon" href="/static/images/covid.gif">
   <title>COVID19</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  <!-- D3 Import -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>  
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
@@ -43,19 +44,80 @@
     </div>
   </nav>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
         <div class="col-12">
-           <h3 id="bio">Making a dashboard of just numbers related to COVID19</h3>
+           <h3 id="bio">TOTAL US DEATHS AS OF<div id="today"></div></h3>
+           <div class="text-center" id="death_today"></div>
         </div>
     </div>
+</div> -->
+<svg id="calendar"></svg>
+<div class="row">
+
+  <div class="col-md-4 space">
+    <div class="card text-center" style="width: 18rem;">
+      <img src="/static/images/death.jpg" class="card-img-top" alt="COVID-19 Death Toll">
+      <div class="card-body">
+        <h6 class="card-title"><div id="death_today"></div></h6>
+      </div>  
+    </div>
+  </div>
+
+  <div class="col-md-4 space">
+    <div class="card text-center" style="width: 18rem;">
+      <img src="/static/images/positive.jpg" class="card-img-top" alt="COVID-19 Positive Tests">
+      <div class="card-body">
+        <h6 class="card-title"><div id="positive_today"></div></h6>
+      </div>  
+    </div>
+  </div>
+
+  <div class="col-md-4 space">
+    <div class="card text-center" style="width: 18rem;">
+      <img src="/static/images/negative.jpg" class="card-img-top" alt="COVID-19 Negative Tests">
+      <div class="card-body">
+        <h6 class="card-title"><div id="negative_today"></div></h6>
+      </div>  
+    </div>
+  </div>
+
 </div>
 
+<div class="row">
+  
+  <div class="col-md-6 space">
+    <div class="card text-center" style="width: 18rem;">
+      <img src="/static/images/covid.gif" class="card-img-top" alt="COVID-19 Hosptialized">
+      <div class="card-body">
+        <h6 class="card-title"><div id="hosp_today"></div></h6>
+      </div>  
+    </div>
   </div>
+
+  <div class="col-md-6 space">
+    <div class="card text-center" style="width: 18rem;">
+      <img src="/static/images/covid.gif" class="card-img-top" alt="COVID-19 On Ventilator">
+      <div class="card-body">
+        <h6 class="card-title"><div id="vent_today"></div></h6>
+      </div>  
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- JS -->
+<script type="text/javascript" src="/static/js/app-numbers.js"></script>
+<script type="text/javascript" src="/static/js/app-calendar.js"></script>
 
 </body>
 
