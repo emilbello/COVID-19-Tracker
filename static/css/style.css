@@ -65,8 +65,22 @@
     font-weight: lighter;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .space {
     padding: 30px;
+}
+
+.body {
+    height: 97%;
+}
+
+.svgcal {
+    height: 2500;
+    width: 300;
+    width: 97%;
 }
 
 /* PLACEHOLDER CSS */
@@ -78,17 +92,10 @@
     border-color: white;
 }
 
-.chart {
+/* .chart {
     background: #fff;
     margin: 5px;
-  }
+  } */
 
-.body {
-    height: 97%;
-  }
 
-svg {
-    height: 1800;
-    width: 97%;
-  }
  

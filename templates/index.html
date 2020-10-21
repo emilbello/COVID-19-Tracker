@@ -7,8 +7,6 @@
   <title>COVID19</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- IMPORT PLOTLY -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- D3 Import -->
   <script src="https://d3js.org/d3.v5.min.js"></script>   
@@ -60,25 +58,36 @@
     <div class="row">
         <div class="col-12">
             <h2 class="header-row thin-text">COVID-19 Dashboard</h2>
+            <p class="thin-text text-center">Last Update</p>
+            <div class="text-center thin-text" id="today"></div>
             <hr>
     </div>
   </div>
 </div>
 
+<div class="row">
+  <div class="col-4 text-center">
+    <h5 class="underline">Deaths</h5><div id="death_today"></div>
+  </div>
+
+  <div class="col-4 text-center">
+    <h5 class="underline">Positive</h5><div class="thin-text" id="positive_today"></div>
+  </div>
+
+  <div class="col-4 text-center">
+    <h5 class="underline">Hospitalized</h5><div id="hosp_today"></div>
+  </div>
+
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div id="plot"></div>
+      <svg class="svgcal" id="svg"></svg>
     </div>
   </div>
 
-  <div class = "row">
-    <div class="col-1"></div>
-    <div class="col-4" id="placeholder">This could be list of other countries numbers compared to the United States?</div>
-    <div class="col-2"></div>
-    <div class="col-4" id="placeholder">This could be another list or infographic - maybe a circle graph thing listing total infected and total recovered?</div>
-    <div class="col-1"></div>
-  </div>
+  
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -96,7 +105,8 @@ crossorigin=""></script>
 <script type="text/javascript" src="/static/js/config.js"></script>
 
 <!-- JS -->
-<script type="text/javascript" src="/static/js/app.js"></script>
+<script type="text/javascript" src="/static/js/app-numbers.js"></script>
+<script type="text/javascript" src="/static/js/app-cal.js"></script>
 
 </body>
 

@@ -22,12 +22,20 @@ d3.json("/covidhistory").then(function (sample) {
         .entries(dateValues)
         .reverse();
 
+        const month = d3.nest()
+        .key(d => d.date.getUTCMonth())
+        .entries(dateValues)
+        .reverse();
+
+        console.log(month);
+
         const values = dateValues.map(c => c.value);
         const maxValue = d3.max(values);
         const minValue = d3.min(values);
 
         const cellSize = 15;
         const yearHeight = cellSize * 7;
+        // const monthHeight = cellSize * 30;
 
         const group = svg.append("g");
 
@@ -37,13 +45,13 @@ d3.json("/covidhistory").then(function (sample) {
         .join("g")
         .attr(
             "transform",
-            (d, i) => `translate(50, ${yearHeight * i + cellSize * 1.5})`
+            (d, i) => `translate(150, ${yearHeight * i + cellSize * 1.5})`
         );
 
         year
         .append("text")
         .attr("x", -5)
-        .attr("y", -30)
+        .attr("y", 10)
         .attr("text-anchor", "end")
         .attr("font-size", 16)
         .attr("font-weight", 550)
@@ -56,18 +64,28 @@ d3.json("/covidhistory").then(function (sample) {
         const timeWeek = d3.utcSunday;
         const formatDate = d3.utcFormat("%x");
         const colorFn = d3
-        .scaleSequential(d3.interpolateBuGn)
+        .scaleSequential(d3.interpolateReds )
         .domain([Math.floor(minValue), Math.ceil(maxValue)]);
         const format = d3.format("+.2%");
+
+        // const formatMonth = d =>
+        // ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getUTCMonth()];
+        // const countMonth = d => d.getUTCMonth();
+        // // const timeWeek = d3.utcSunday;
+        // const formatD = d3.utcFormat("%b");
+        // const colorFn = d3
+        // .scaleSequential(d3.interpolateReds )
+        // .domain([Math.floor(minValue), Math.ceil(maxValue)]);
+        // const format = d3.format("+.2%");
 
         year
         .append("g")
         .attr("text-anchor", "end")
         .selectAll("text")
-        .data(d3.range(7).map(i => new Date(1995, 0, i)))
+        .data(d3.range(7).map(i => new Date(2020, 0, i)))
         .join("text")
-        .attr("x", -5)
-        .attr("y", d => (countDay(d) + 0.5) * cellSize)
+        .attr("x", 40)
+        .attr("y", d => (countDay(d) + .5) * cellSize)
         .attr("dy", "0.31em")
         .attr("font-size", 12)
         .text(formatDay);
@@ -87,6 +105,8 @@ d3.json("/covidhistory").then(function (sample) {
         .attr("fill", d => colorFn(d.value))
         .append("title")
         .text(d => `${formatDate(d.date)}: ${d.value.toFixed(2)}`);
+
+
 
         const legend = group
         .append("g")
@@ -111,15 +131,15 @@ d3.json("/covidhistory").then(function (sample) {
         const legendWidth = 60;
 
         function toggle(legend) {
-        const { lowerBound, upperBound, selected } = legend;
+            const { lowerBound, upperBound, selected } = legend;
 
-        legend.selected = !selected;
+            legend.selected = !selected;
 
-        const highlightedDates = years.map(y => ({
-            key: y.key,
-            values: y.values.filter(
-            v => v.value > lowerBound && v.value <= upperBound
-            )
+            const highlightedDates = years.map(y => ({
+                key: y.key,
+                values: y.values.filter(
+                v => v.value > lowerBound && v.value <= upperBound
+                )
         }));
 
         year
