@@ -23,3 +23,7 @@ d3.json("/covidhistory").then(function (data) {
         .append("h1")
         .html(data[0].hospitalized_current)
 })
+
+d3.json("/covid_data").then(function (data){
+    console.log(data);
+})

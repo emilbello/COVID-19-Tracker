@@ -6,7 +6,7 @@ d3.json("/covidhistory").then(function (data) {
 
         // Next, pull out the keys and the values for graphing
         keys = data.map(x => x.date)
-        values = data.map(x => x.value)
+        values = data.map(x => x.death_incr)
     
         // Create the trace
         var trace = {
