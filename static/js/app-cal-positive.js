@@ -1,7 +1,9 @@
-console.log("Loaded app-cal.js")
+console.log("Loaded app-cal-pos.js")
 
 d3.json("/covidhistory").then(function (sample) {
-    console.log(sample);
+
+    // console.log(sample); // Test to see if data is received
+    
     sample.sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
     const dateValues = sample.map(dv => ({
@@ -27,7 +29,7 @@ d3.json("/covidhistory").then(function (sample) {
         .entries(dateValues)
         .reverse();
 
-        console.log(month);
+        // console.log(month);
 
         const values = dateValues.map(c => c.value);
         const maxValue = d3.max(values);
@@ -48,15 +50,16 @@ d3.json("/covidhistory").then(function (sample) {
             (d, i) => `translate(150, ${yearHeight * i + cellSize * 1.5})`
         );
 
-        year
-        .append("text")
-        .attr("x", -5)
-        .attr("y", 10)
-        .attr("text-anchor", "end")
-        .attr("font-size", 16)
-        .attr("font-weight", 550)
-        .attr("transform", "rotate(270)")
-        .text(d => d.key);
+        // TO SHOW YEAR NEXT TO GRAPH - COMMENT IN
+        // year
+        // .append("text")
+        // .attr("x", -5)
+        // .attr("y", 10)
+        // .attr("text-anchor", "end")
+        // .attr("font-size", 16)
+        // .attr("font-weight", 550)
+        // .attr("transform", "rotate(270)")
+        // .text(d => d.key);
 
         const formatDay = d =>
         ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"][d.getUTCDay()];
@@ -67,16 +70,6 @@ d3.json("/covidhistory").then(function (sample) {
         .scaleSequential(d3.interpolateYlOrBr)
         .domain([Math.floor(minValue), Math.ceil(maxValue)]);
         const format = d3.format("+.2%");
-
-        // const formatMonth = d =>
-        // ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getUTCMonth()];
-        // const countMonth = d => d.getUTCMonth();
-        // // const timeWeek = d3.utcSunday;
-        // const formatD = d3.utcFormat("%b");
-        // const colorFn = d3
-        // .scaleSequential(d3.interpolateReds )
-        // .domain([Math.floor(minValue), Math.ceil(maxValue)]);
-        // const format = d3.format("+.2%");
 
         year
         .append("g")

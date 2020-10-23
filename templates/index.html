@@ -3,18 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="/static/images/covid.gif">
-  <title>COVID19</title>
+  <link rel="shortcut icon" href="/static/images/covid.gif"> 
+  <title>COVID19 Tracker</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   <!-- D3 Import -->
   <script src="https://d3js.org/d3.v5.min.js"></script>   
-
-   <!-- Leaflet CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin="" />
 
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
@@ -22,8 +17,11 @@
 </head>
 
 <body>
+  
+  <!-- NAVBAR START-->
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a class="navbar-brand" href="index.html">COVID-19</a> -->
+
     <a href="#"><img src="/static/images/covid19.gif" width="100" height="29" class="d-inline-block align-top" alt="">    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></a>    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,6 +51,10 @@
     </div>
   </nav>
 
+  <!-- NAVBAR END -->
+
+  <!-- COVID DASHBOARD HEADER START -->
+
   <div class="container">
     <div class="row">
         <div class="col-12">
@@ -60,26 +62,45 @@
             <p class="thin-text text-center">Last Update</p>
             <div class="text-center thin-text" id="today"></div>
             <hr>
+        </div>
     </div>
-  </div>
 </div>
+
+<!-- COVID DASHBOARD HEADER END -->
+
+<!-- NUMBERS START -->
+
 <div class="row">
-  <div class="col-3"></div>
+
+  <div class="col-3"></div> <!-- PLACEHOLDER -->
+
+  <!-- DEATHS -->
   <div class="col-2 text-center">
-    <h5 style="color:#910f06">Total Deaths</h5><div id="death_today"></div>
+    <h5 style="color:#910f06">Total Deaths</h5>
+    <div id="death_today"></div>
   </div>
 
+  <!-- TOTAL POS -->
   <div class="col-2 text-center">
-    <h5 style="color:#d1870f">Total Positive</h5><div class="thin-text" id="positive_today"></div>
+    <h5 style="color:#d1870f">Total Positive</h5>
+    <div id="positive_today"></div>
   </div>
 
+  <!-- TOTAL HOSP -->
   <div class="col-2 text-center">
-    <h5 style="color: #131d87">Total Hospitalized</h5><div id="hosp_today"></div>
+    <h5 style="color: #131d87">Total Hospitalized</h5>
+    <div id="hosp_today"></div>
   </div>
-  <div class="col-3"></div>
+
+  <div class="col-3"></div> <!-- PLACEHOLDER -->
 
 </div>
 
+<!-- NUMBERS END -->
+
+<!-- CALENDARS SVG INPUT START -->
+
+<!-- DEATHS -->
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -88,6 +109,7 @@
   </div>
 </div>
 
+<!-- POSITIVE -->
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -96,6 +118,7 @@
   </div>
 </div>
 
+<!-- HOSPITALIZED -->
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -104,23 +127,15 @@
   </div>
 </div>
 
+<!-- CALENDARS SVG INPUT END -->
 
+<!-- IMPORTS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-crossorigin=""></script>
-
-<!-- API key -->
-<script type="text/javascript" src="/static/js/config.js"></script>
-
 <!-- JS -->
-<script type="text/javascript" src="/static/js/app.js"></script>
 <script type="text/javascript" src="/static/js/app-numbers.js"></script>
 <script type="text/javascript" src="/static/js/app-cal.js"></script>
 <script type="text/javascript" src="/static/js/app-cal-positive.js"></script>
