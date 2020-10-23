@@ -52,18 +52,39 @@
     <div class="col-md-2">
       
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
       <div class="well">
-        <h5>State:</h5>
-        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        <h5>Select State 1:</h5>
+        <select id="selDataset"></select> <!-- onchange="optionChanged(this.value)" -->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="well">
+        <h5>Select State 2:</h5>
+        <select id="selDataset2"></select> <!-- onchange="optionChanged(this.value)" -->
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
         <div class="col-12">
-           <!-- <div id="plot"></div> -->
+           <div id="plotly"></div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+           <div id="plotly2"></div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+         <div id="plotly3"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+         <div id="plotly4"></div>
+      </div>
     </div>
 </div>
 
@@ -77,7 +98,6 @@ crossorigin=""></script>
 <script type="text/javascript" src="/static/js/config.js"></script>
 
 <!-- JS -->
-<script type="text/javascript" src="/static/js/app.js"></script>
 <script type="text/javascript" src="/static/js/app-state.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
