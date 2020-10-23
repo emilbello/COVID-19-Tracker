@@ -10,9 +10,13 @@ DATA SETUP & SITE LAUNCH:
 5. In a terminal window, type 'source activate NewPythonData' and then 'jupyter notebook'
 6. In the 'TimeSeries' jupyter notebook click Kernel > Restart & Run All
 7. Back in Postgres - go to covid19_db > Schemas > Tables
+
     a) Right click on covid_data > Properties > Columns > In the 'state' row turn Primary key? to Yes
+
     b) Right click on covid_hist > Properties > Columns > In the 'date' row turn Primary key? to Yes
+
     c) Right click on covid_rolling > Properties > Columns > In the 'index' row turn Primary key? to Yes
+    
 8. In a new Terminal Window, type 'source activate NewPythonData' and then 'python app.py' to run Flask Server
 9. In a Chrome Browser window, go to http://127.0.0.1:5000/index.html
 
