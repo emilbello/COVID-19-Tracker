@@ -2,7 +2,9 @@ console.log("Loaded app-cal-death.js")
 
 d3.json("/covidhistory").then(function (sample) {
 
-    // console.log(sample); // Test to see if data received
+    // DATA USED
+    console.log("DATA BEING USED FOR CALENDAR:")
+    console.log(sample); // Test to see if data received
 
     sample.sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
@@ -29,6 +31,7 @@ d3.json("/covidhistory").then(function (sample) {
             .entries(dateValues)
             .reverse();
 
+        console.log("**if enough time - get month from here and put above cal**")
         console.log(month);
 
         const values = dateValues.map(c => c.value);
