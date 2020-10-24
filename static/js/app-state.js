@@ -17,6 +17,7 @@ function updateAll() {
     linePlots(dataset, dataset2);
     
 };
+// FUNCTION TO PLOT LINE CHARTS
 function linePlots(info, info2){
     console.log("buildPlots FUNCTION RUNNING");
     console.log("Dropdown 1:")
@@ -193,38 +194,7 @@ function linePlots(info, info2){
           };
 
         Plotly.newPlot('plotly4', p4data, p4layout);
-        // ---- BUBBLE CHART ----
-        // Grab variables for Bubble Chart
-        // var sample_values = selectedData[0].sample_values;
-        // var otu_ids = selectedData[0].otu_ids;
-        // var otu_labels = selectedData[0].otu_labels
-        // console.log(otu_labels); // TEST
-        // ----- BAR CHART -----
-        // Organize by top 10 OTUs found in individual
-        // console.log(topTenOtuIDs);
-     
-        // var bar1 = {
-        //     x: selectedData[0].sample_values.slice(0,10).reverse(),
-        //     y: selectedData[0].otu_ids.slice(0,10).map(otu_id => `OTU ${otu_id}`).reverse(),
-        //     text: selectedData[0].otu_labels.slice(0,10).reverse(),
-        //     // name: "Sample",
-        //     type: "bar",
-        //     orientation: "h",
-        //     marker: {
-        //         color: "#FFA85C"
-        //     }
-        // };
-        // var barData = [bar1];
-        // var barLayout = {
-        //     title: "Top 10 OTUs Found in Sample",
-        //     margin: {
-        //         l: 100,
-        //         r: 100,
-        //         t: 100,
-        //         b: 100
-        //       }
-        // };
-        // Plotly.newPlot("bar", barData, barLayout);
+        
     })
     
 };
