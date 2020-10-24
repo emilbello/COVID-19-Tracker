@@ -151,4 +151,12 @@
 } */
 
 
- 
+/* ---------- FOR By STATES on bystate.html ----------*/
+
+
+ /* Rounded border */
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+  }
+  

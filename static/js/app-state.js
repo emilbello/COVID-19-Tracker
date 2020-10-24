@@ -61,7 +61,7 @@ function linePlots(info, info2){
             text: ntoolTip,
             name: info,
             line: {
-                color: '#DE6E04',
+                color: '#36328c',
                 weight: 3
             }
         };
@@ -72,7 +72,7 @@ function linePlots(info, info2){
             text: ntoolTip2,
             name: info2,
             line: {
-                color: '#EBAA07',
+                color: '#91adeb',
                 weight: 3
             }
         };
@@ -102,7 +102,7 @@ function linePlots(info, info2){
             text: dtoolTip2,
             name: info2,
             line: {
-                color: '#F0560C',
+                color: '#EBAA07',
                 weight: 3
             }
         };
@@ -121,7 +121,7 @@ function linePlots(info, info2){
             mode: 'line',
             name: info,
             line: {
-                color: '#DE6E04',
+                color: '#36328c',
                 weight: 3
             }
         };
@@ -132,7 +132,7 @@ function linePlots(info, info2){
             mode: 'lines',
             name: info2,
             line: {
-                color: '#EBAA07',
+                color: '#91adeb',
                 weight: 3
             }
         };
@@ -172,7 +172,7 @@ function linePlots(info, info2){
             mode: 'lines',
             name: info2,
             line: {
-                color: '#F0560C',
+                color: '#EBAA07',
                 weight: 3
             }
         };
