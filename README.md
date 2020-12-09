@@ -1,7 +1,26 @@
 # COVID-19-Tracker
-US COVID-19 Tracker - COVID-19 is an ongoing pandemic that is affecting the entire world. The data behind this virus, which is vast and plenty, is an important tool we can use to fight against it. This site is a project created by a team of students to visualize the data and make it easier to understand.
 
-DATA SETUP & SITE LAUNCH:
+**Team**
+
+[_Matt Mead_](https://www.linkedin.com/in/mattmeadmpls/)
+[_Emilio Bello_](https://www.linkedin.com/in/emilio-bello-09938760/)
+[_Allan Hunt_](https://www.linkedin.com/in/allanrhunt/)
+
+**Project Description** 
+
+US COVID-19 Tracker - COVID-19 is an ongoing pandemic that is affecting the entire world. The data behind this virus, which is vast, is an important tool we can use to fight against it. This site is a project created by a team of University of Minnesota Data Analytics & Visualization Boot Camp students to visualize the data and make it easier to understand.
+
+**Tools Used**
+
+_Postgres SQL_
+_Python_
+_Flask Server_
+_javaScript_
+_HTML & CSS_
+_Leaflet_
+_jupyter notebook_
+
+# DATA SETUP & SITE LAUNCH:
 
 1. Open config.py file, input your own Postgres password, and save.
 2. Open static/js/config.js file, input your own Leaflet password, and save.
