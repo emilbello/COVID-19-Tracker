@@ -3,7 +3,9 @@
 **Team**
 
 [_Matt Mead_](https://www.linkedin.com/in/mattmeadmpls/)
+
 [_Emilio Bello_](https://www.linkedin.com/in/emilio-bello-09938760/)
+
 [_Allan Hunt_](https://www.linkedin.com/in/allanrhunt/)
 
 **Project Description** 
@@ -13,11 +15,17 @@ US COVID-19 Tracker - COVID-19 is an ongoing pandemic that is affecting the enti
 **Tools Used**
 
 _Postgres SQL_
+
 _Python_
+
 _Flask Server_
+
 _javaScript_
+
 _HTML & CSS_
+
 _Leaflet_
+
 _jupyter notebook_
 
 # DATA SETUP & SITE LAUNCH:
