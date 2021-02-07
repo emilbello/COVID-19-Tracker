@@ -14,7 +14,7 @@ US COVID-19 Tracker - COVID-19 is an ongoing pandemic that is affecting the enti
 
 For a live version of the tracker Click [HERE](https://mmeadx.github.io/covid19_tracker/)
 
-[CLICK HERE FOR INSTRUCTIONS ON RUNNING THE ORIGINAL TRACKER LOCALLY](#data-setup-&-site-launch)
+See below instructions for DATA SETUP & SITE LAUNCH
 
 **Tools Used**
 
