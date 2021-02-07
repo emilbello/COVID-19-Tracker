@@ -32,7 +32,7 @@ _Leaflet_
 
 _jupyter notebook_
 
-# DATA SETUP & SITE LAUNCH:
+# DATA SETUP & SITE LAUNCH: 
 
 1. Open config.py file, input your own Postgres password, and save.
 2. Open static/js/config.js file, input your own Leaflet password, and save.
