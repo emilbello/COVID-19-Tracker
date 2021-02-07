@@ -12,6 +12,10 @@
 
 US COVID-19 Tracker - COVID-19 is an ongoing pandemic that is affecting the entire world. The data behind this virus, which is vast, is an important tool we can use to fight against it. This site is a project created by a team of University of Minnesota Data Analytics & Visualization Boot Camp students to visualize the data and make it easier to understand.
 
+For a live version of the tracker Click [HERE](https://mmeadx.github.io/covid19_tracker/)
+
+[CLICK HERE FOR INSTRUCTIONS ON RUNNING THE ORIGINAL TRACKER LOCALLY](#data-setup-&-site-launch)
+
 **Tools Used**
 
 _Postgres SQL_
